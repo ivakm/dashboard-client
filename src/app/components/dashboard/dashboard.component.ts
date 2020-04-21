@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
+import { DashboardComponentDialog } from "./dashboard-dialog.component";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
 
-  form: FormGroup;
+export class DashboardComponent {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      name: [''],
-      lastName: [''],
-      tel: ['']
+  openOrderForm(): void {
+    const dialogRef = this.dialog.open(DashboardComponentDialog, {
+      width: '400px',
+      height: '400px'
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`success`);
+    });
   }
-
-  submitForm() {
-    console.log(this.form.value)
-  }
-
 }
+
