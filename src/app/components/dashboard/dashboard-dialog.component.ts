@@ -12,8 +12,7 @@ export class DashboardComponentDialog implements OnInit {
   form: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<DashboardComponentDialog>,
-              private formBuilder: FormBuilder) {
-  }
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
