@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<form (ngSubmit)="submitForm()"
+      [formGroup]="form"
+      class="order-form">
+  <mat-form-field appearance="fill">
+    <mat-label >Ім'я</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Прізвище</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> Номер телефону</mat-label>
+    <input matInput formControlName="tel">
+  </mat-form-field>
+
+  <button mat-raised-button  type="submit" class="order-submit">Відправити форму</button>
+</form>

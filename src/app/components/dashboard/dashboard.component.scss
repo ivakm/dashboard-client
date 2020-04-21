@@ -1,0 +1,20 @@
+.order-form {
+  border: 1px solid rgb(0, 0, 255);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  left: 50%;
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 150px;
+  padding: 10px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
