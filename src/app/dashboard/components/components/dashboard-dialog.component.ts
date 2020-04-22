@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 
@@ -10,7 +10,6 @@ import { MatDialogRef } from "@angular/material/dialog";
 export class DashboardComponentDialog implements OnInit {
 
   form: FormGroup;
-
   constructor(public dialogRef: MatDialogRef<DashboardComponentDialog>,
               private formBuilder: FormBuilder) { }
 
@@ -20,7 +19,6 @@ export class DashboardComponentDialog implements OnInit {
       lastName: [''],
       tel: ['']
     });
-
   }
 
   onNoClick(): void {

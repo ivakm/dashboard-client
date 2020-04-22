@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { DashboardComponentDialog } from "./dashboard-dialog.component";
+import { DashboardComponentDialog } from "./components/dashboard-dialog.component";
 
 @Component({
   selector: 'app-dashboard',
