@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { DashboardComponentDialog } from "./components/dashboard-dialog.component";
+import { IOrders } from "../interfaces/dashboard.interface";
+import { DashboardService } from "../services/dashboard.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +10,19 @@ import { DashboardComponentDialog } from "./components/dashboard-dialog.componen
   styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+  ordersData: IOrders[];
+  displayedColumn: string[];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private orderService: DashboardService) {
+    this.displayedColumn = ["FIO", "title", "tel", "email", "describe"]
+  }
+
+  ngOnInit() {
+    this.ordersData = this.orderService.getOrdersData();
+  }
 
   openOrderForm(): void {
     const dialogRef = this.dialog.open(DashboardComponentDialog, {
@@ -19,7 +31,7 @@ export class DashboardComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`success`);
+      this.ordersData = this.orderService.getOrdersData();
     });
   }
 }

@@ -14,19 +14,19 @@
 
   <mat-form-field appearance="fill" class="required">
     <mat-label> Номер телефону</mat-label>
-    <input matInput formControlName="tel">
-    <mat-icon
-      matTooltipPosition="above"
-      matTooltip="Наприклад: 380979998877"
-      class="form-tooltip"
-    >help_outline</mat-icon>
+    <input matInput formControlName="tel" maxlength="12">
+    <mat-icon matTooltipPosition="above" matTooltip="Наприклад: 380979998877" class="form-tooltip">
+      help_outline
+    </mat-icon>
     <mat-hint align="end" class="form-required">Обов'язкове поле</mat-hint>
+
     <mat-error *ngIf="form.hasError('tel') && !form.hasError('required')">
-     Номер телефону повинен бути типу: <strong>380979876543</strong>
+      Номер телефону повинен бути типу: <strong>380979876543</strong>
     </mat-error>
     <mat-error *ngIf="form.hasError('required')">
       Номер телефону <strong>обов'язковий</strong>
     </mat-error>
+
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -39,6 +39,6 @@
     <textarea matInput formControlName="describe" class="form-describe"></textarea>
   </mat-form-field>
 
-  <button mat-raised-button type="submit" class="order-submit" (click)="onNoClick()">Відправити форму</button>
+  <button mat-raised-button type="submit" class="order-submit">Відправити форму</button>
 </form>
 

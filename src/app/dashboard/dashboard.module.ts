@@ -10,7 +10,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { DashboardComponent } from "./components/dashboard.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
-
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   imports: [
@@ -22,7 +22,8 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule
   ],
   declarations: [DashboardComponent, DashboardComponentDialog],
   entryComponents: [DashboardComponentDialog],

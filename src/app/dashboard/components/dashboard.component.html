@@ -1,1 +1,33 @@
 <button mat-raised-button (click)="openOrderForm()">Відкрити вікно замовлення</button>
+
+
+<table mat-table [dataSource]="ordersData" class="ordered-table">
+
+  <ng-container matColumnDef="FIO">
+    <th mat-header-cell *matHeaderCellDef> Ім'я</th>
+    <td mat-cell *matCellDef="let element"> {{element.FIO}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Заголовок</th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tel">
+    <th mat-header-cell *matHeaderCellDef> Телефон</th>
+    <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Ел. адреса</th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="describe">
+    <th mat-header-cell *matHeaderCellDef> Опис</th>
+    <td mat-cell *matCellDef="let element"> {{element.describe}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+</table>

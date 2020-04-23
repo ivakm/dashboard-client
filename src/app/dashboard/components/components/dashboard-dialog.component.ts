@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
+import { DashboardService } from "../../services/dashboard.service";
+import { log } from "util";
 
 @Component({
   selector: 'app-dashboard-dialog',
@@ -11,24 +13,27 @@ export class DashboardComponentDialog implements OnInit {
 
   form: FormGroup;
   constructor(public dialogRef: MatDialogRef<DashboardComponentDialog>,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       FIO: [''],
       title: [''],
-      tel: ['38', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
-      email: [''],
+      tel: ['38', [Validators.required, Validators.minLength(12)]],
+      email: ['', [Validators.email]],
       describe: ['']
     });
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   submitForm() {
-    console.log(this.form.value)
+    const formData = this.form.value;
+    if(!this.form.valid) {
+      return;
+    }
+
+    this.dashboardService.updateOrdersData(formData);
+    this.dialogRef.close();
   }
 
 }
