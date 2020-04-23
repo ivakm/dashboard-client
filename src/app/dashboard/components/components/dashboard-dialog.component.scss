@@ -11,4 +11,23 @@
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+}
+
+.form-required {
+  color: red
+}
+
+.required {
+  position: relative;
+}
+
+.form-tooltip {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-100%);
 }

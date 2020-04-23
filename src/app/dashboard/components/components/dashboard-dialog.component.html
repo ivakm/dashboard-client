@@ -1,21 +1,44 @@
 <form (ngSubmit)="submitForm()"
       [formGroup]="form"
       class="order-form">
+  <h3 mat-dialog-title>Вашe замовлення буде:</h3>
   <mat-form-field appearance="fill">
-    <mat-label >Ім'я</mat-label>
-    <input matInput formControlName="name">
+    <mat-label>Заголовок</mat-label>
+    <input matInput formControlName="title">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Прізвище</mat-label>
-    <input matInput formControlName="lastName">
+    <mat-label>Ім'я та прізвище</mat-label>
+    <input matInput formControlName="FIO">
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="required">
     <mat-label> Номер телефону</mat-label>
     <input matInput formControlName="tel">
+    <mat-icon
+      matTooltipPosition="above"
+      matTooltip="Наприклад: 380979998877"
+      class="form-tooltip"
+    >help_outline</mat-icon>
+    <mat-hint align="end" class="form-required">Обов'язкове поле</mat-hint>
+    <mat-error *ngIf="form.hasError('tel') && !form.hasError('required')">
+     Номер телефону повинен бути типу: <strong>380979876543</strong>
+    </mat-error>
+    <mat-error *ngIf="form.hasError('required')">
+      Номер телефону <strong>обов'язковий</strong>
+    </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button  type="submit" class="order-submit" (click)="onNoClick()">Відправити форму</button>
+  <mat-form-field appearance="fill">
+    <mat-label> Електронна адреса</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Опис послуги</mat-label>
+    <textarea matInput formControlName="describe" class="form-describe"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" class="order-submit" (click)="onNoClick()">Відправити форму</button>
 </form>
 

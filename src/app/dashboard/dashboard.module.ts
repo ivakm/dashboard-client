@@ -8,6 +8,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { DashboardComponent } from "./components/dashboard.component";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { DashboardComponent } from "./components/dashboard.component";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   declarations: [DashboardComponent, DashboardComponentDialog],
   entryComponents: [DashboardComponentDialog],

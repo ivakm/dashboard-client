@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
@@ -15,9 +15,11 @@ export class DashboardComponentDialog implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: [''],
-      lastName: [''],
-      tel: ['']
+      FIO: [''],
+      title: [''],
+      tel: ['38', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
+      email: [''],
+      describe: ['']
     });
   }
 
