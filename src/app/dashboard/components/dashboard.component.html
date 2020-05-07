@@ -1,5 +1,8 @@
-<button mat-raised-button (click)="openOrderForm()">Відкрити вікно замовлення</button>
-
+<mat-toolbar color="primary" class="dashboard__toolbar">
+  <button mat-mini-fab color="basic" (click)="openOrderForm()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
 
 <table mat-table [dataSource]="ordersData" class="ordered-table">
 
