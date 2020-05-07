@@ -17,6 +17,11 @@ mat-form-field {
 }
 
 .form {
+  
+  &__title {
+    text-align: center;
+  }
+  
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -36,6 +41,11 @@ mat-form-field {
 
   &__describe {
     width: 100%;
+  }
+
+  &__text-area {
+    height: 200px;
+    resize: none;
   }
 }
 
