@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit{
 
   openOrderForm(): void {
     const dialogRef = this.dialog.open(DashboardComponentDialog, {
-      width: '500px',
-      height: '800px'
+      width: '70vw',
+      height: '70vh'
     });
 
     dialogRef.afterClosed().subscribe(result => {
